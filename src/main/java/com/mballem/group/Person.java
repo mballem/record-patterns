@@ -1,4 +1,4 @@
-package com.mballem.ex1;
+package com.mballem.group;
 
 public record Person(String firstName, String lastName, int age) {
 }

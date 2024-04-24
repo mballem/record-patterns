@@ -1,12 +1,20 @@
 package com.mballem.desconstrutor;
 
-public record Vehicle(String brand, String model, String licensePlate) {}
+public record Vehicle(String brand, String model, String licensePlate) {
+
+}
 
 class Main {
     public static void main(String[] args) {
-        com.mballem.group.Person person = new com.mballem.group.Person("Mario Anselmo", "Pereira", 32);
-        System.out.printf("Full Name: %s %s \n", person.firstName(), person.lastName());
-        System.out.printf("Age: %d", person.age());
+        Vehicle vehicle = new Vehicle("Honda", "Fit 1.4", "JAV-1621");
+
+        if(vehicle instanceof Vehicle(String brand, String model, String licensePlate)) {
+            System.out.println(brand + " - " + model + ": " + licensePlate);
+        }
+
+        if(vehicle instanceof Vehicle(var marca, var modelo, var placa)) {
+            System.out.println(marca + " - " + modelo + ": " + placa);
+        }
     }
 }
 
